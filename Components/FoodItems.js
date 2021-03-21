@@ -1,19 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet,Image, Text, View } from 'react-native';
+import { StyleSheet,TouchableOpacity ,Image, Text, View } from 'react-native';
 
-export default function FoodItems({image,name,price}) {
+import {useNavigation} from '@react-navigation/native'
+
+export default function FoodItems({image,name,price,detail}) {
+  const navigation = useNavigation()
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}
+      onPress={()=>navigation.navigate("Detail",{image,name,price,detail})}
+    >
       <Image
-      style={styles.image}
-      source={{uri: image}}
+          style={styles.image}
+          source={{uri: image}}
       />
       <View style={{alignItems:'center'}}>
           <Text style={{fontWeight:'bold'}}>{name}</Text>
           <Text>{price}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

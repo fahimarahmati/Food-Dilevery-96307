@@ -9,6 +9,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 const Stack =createStackNavigator();
 const Tab=createBottomTabNavigator()
 import Home from "./Screens/Home";
+import Detail from './Screens/Detail'
 export default function App() {
   return (
   <NavigationContainer>
@@ -51,6 +52,11 @@ function HomeStack(){
         name="Home"
         component={Home}
         options={{tilte:"Home Page"}}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={Detail}
+        
       />
 
   </Stack.Navigator>
