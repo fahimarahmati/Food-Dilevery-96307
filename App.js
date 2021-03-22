@@ -11,6 +11,7 @@ const Tab=createBottomTabNavigator()
 import Home from "./Screens/Home";
 import Detail from './Screens/Detail'
 import Favorite from './Screens/Favorite'
+import Profile from './Screens/Profile'
 export default function App() {
   return (
   <NavigationContainer>
@@ -42,6 +43,20 @@ export default function App() {
             tabBarIcon:({color, size})=>(
               <MaterialCommunityIcons
               name="heart"
+              color={color}
+              size={size}
+              />
+            )
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileStack}
+          options={{
+            tabBarLabel:"Profile",
+            tabBarIcon:({color, size})=>(
+              <MaterialCommunityIcons
+              name="account"
               color={color}
               size={size}
               />
@@ -93,6 +108,24 @@ function FavoriteStack(){
         options={{tilte:"Favorite Page"}}
       />
 
+  </Stack.Navigator>
+  )
+}
+function ProfileStack(){
+  return(
+    <Stack.Navigator
+    initialRouteName="Profile"
+    screenOptions={{
+      headerStyle:{backgroundColor:"#841548"},
+      headerTintColor:'#fff',
+      headerTitleStyle:{fontWeight:"bold"}
+    }}
+    >
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{tilte:"Profile Page"}}
+      />
   </Stack.Navigator>
   )
 }
