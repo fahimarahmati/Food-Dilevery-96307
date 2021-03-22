@@ -22,7 +22,7 @@ export default function Detail(){
                 <Text>{detail}</Text>
             </View>
             <Button
-                 title="Add to favorate"
+                 title="Add to favorite"
                  color="#777777"
             />
         </ScrollView>
